@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-import code
+import code, json
 
 from binascii import hexlify, unhexlify
 from base64 import b64encode, b64decode
@@ -36,7 +36,7 @@ for n in range(max_len):
 
 for i in ciphertexts:
     print(xorstr(i, key))
-        
+            
 # Drop to a console to play with it some more
 # The approach above gets most of the keystream, up to
 # about 30 bytes it looks correct.
