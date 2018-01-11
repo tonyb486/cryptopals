@@ -13,7 +13,7 @@ def detect_ecb(data, blocksize):
 
 if __name__ == "__main__":
     # Read the data from the file
-    data = [unhexlify(i.strip()) for i in open("c8_data.txt").readlines()]
+    data = [unhexlify(i.strip()) for i in open("c08_data.txt").readlines()]
 
     for i in data:
         if detect_ecb(i,16):

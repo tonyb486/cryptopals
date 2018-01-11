@@ -6,7 +6,7 @@ from base64 import b64encode, b64decode
 from c03 import frequency_sum, frequency_error_chi2
 
 if __name__ == "__main__":
-    data = open("c4_data.txt").readlines()
+    data = open("c04_data.txt").readlines()
     scores = []
     for i in data:
         ciphertext = unhexlify(i.strip())

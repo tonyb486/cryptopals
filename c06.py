@@ -34,7 +34,7 @@ def transpose(blocks, blocksize):
 
 
 if __name__ == "__main__":
-    data = b64decode(open("c6_data.txt").read())
+    data = b64decode(open("c06_data.txt").read())
     keysize = get_keysizes(data, 10)[0]
 
     print("Using keysize %d" % keysize)
