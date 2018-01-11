@@ -61,49 +61,34 @@ def do_padding(c1, known):
         return bytearray(c1)
 
 def padding_oracle_block(c1, c2, oracle):
-    c1 = bytearray(c1)
-    c2 = bytearray(c2)
-    p2 = bytearray([0]*16)
     c1_orig = bytearray(c1)
-    
     known = b''
     for index in range(1,17):
         c1 = do_padding(c1_orig, known)
         for i in range(0,256):
             c1[0-index] = i
             if oracle(c1, c2):
-                known = bytes([i^index^c1_orig[0-index]]) + known
-                break
-                    
+                byte = i^index^c1_orig[0-index]
+                if byte>1 or i!=c1_orig[0-index]: #??? something's broken
+                    known = bytes([byte]) + known
+                    break
     return known
-    
+
 def padding_oracle_attack(ciphertext, oracle):
     def padding_oracle(c1, c2):
         token = b"".join([c1,c2])
         try: return oracle(token)
         except: return False
-            
+
     blocks = to_blocks(ciphertext, 16)
     known = b''
     for i in range(len(blocks)-1):
         known += padding_oracle_block(blocks[i], blocks[i+1], padding_oracle)
-   
+
     return known
-    
-    
+
 token = gen_token()
 print(unpad(padding_oracle_attack(token, check_token)).decode("ascii"))
-
-
-
-
-
-
-
-
-
-
-
 
 
 

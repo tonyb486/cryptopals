@@ -5,7 +5,7 @@ These are my solutions to the Cyrptopals Crypto Challengse so far. I'm just putt
 
 Obviously, don't actually use this code for anything real.
 
-All the solutions are in python3, and should only use standard libraries and PyCrypto. Consider them licensed under the MIT license, except for the data files, which are owned by the author of the individual excercise.
+All the solutions are in python3, and should only use standard libraries and PyCrypto. Consider them licensed under the MIT license, except for the data files, which are owned by the authors of the individual excercises.
 
 See http://cryptopals.com/ for the challenges themselves.
 
