@@ -1,8 +1,5 @@
 #!/usr/bin/env python3
 
-from binascii import hexlify, unhexlify
-from base64 import b64encode, b64decode
-
 # Psuedocode from wikipedia (old version; removed): 
 # https://en.wikipedia.org/w/index.php?title=Mersenne_Twister&oldid=209555438
  
@@ -16,16 +13,22 @@ class MT19937:
         self.MT[0] = self._uint32(seed)
         for i in range(1,624):            
             self.MT[i] = self._uint32( 0x6c078965*( self.MT[i-1] ^ (self.MT[i-1]>>30) ) + i )
-    
-    def extractNumber(self):
-        if self.index == 0:
-            self.generateNumbers()
-            
-        y = self.MT[self.index]
+
+    def set_state(self, MT):
+        self.MT = MT
+
+    def temper(self, y):
         y = y^(y>>11)
         y = y^(y<<7)  & 0x9d2c5680
         y = y^(y<<15) & 0xefc60000
         y = y^(y>>18)
+        return y
+        
+    def extractNumber(self):
+        if self.index == 0:
+            self.generateNumbers()
+            
+        y = self.temper(self.MT[self.index])
         self.index = (self.index+1)%624
         return y
         
