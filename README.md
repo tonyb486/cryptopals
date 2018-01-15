@@ -3,7 +3,7 @@
 
 These are my solutions to the Cyrptopals Crypto Challengse so far. I'm just putting them up as-is, so they can be a bit sloppy at times, and I had a bit of fun with list comprehensions. Feel free to look through them for help with the challenges, though course they're full of spoilers. 
 
-Obviously, don't actually use this code for anything real.
+Obviously, don't actually use this code for anything real!
 
 All the solutions are in python3, and should only use standard libraries and PyCrypto. Consider them licensed under the MIT license, except for the data files, which are owned by the authors of the individual excercises.
 
