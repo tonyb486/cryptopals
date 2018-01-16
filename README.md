@@ -1,4 +1,3 @@
-
 ## Cryptopals Crypto Challenges - Solutions
 
 These are my solutions to the Cyrptopals Crypto Challengse so far. I'm just putting them up as-is, so they can be a bit sloppy at times, and I had a bit of fun with list comprehensions. Feel free to look through them for help with the challenges, though course they're full of spoilers. 
